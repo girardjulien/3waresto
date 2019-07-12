@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 /*if (connexion) {
-                    Intent mIntent = new Intent(MainActivity.this, ListeRecetteActivity.class);
+                    Intent mIntent = new Intent(MainActivity.this, ListeRecettesActivity.class);
                     startActivity(mIntent);
                 } else {*/
                     Intent mIntent = new Intent(MainActivity.this, ConnexionActivity.class);

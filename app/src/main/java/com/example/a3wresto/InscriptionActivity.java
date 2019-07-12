@@ -1,6 +1,5 @@
 package com.example.a3wresto;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,47 +15,40 @@ import com.github.kittinunf.fuel.core.Response;
 import com.google.gson.Gson;
 
 import java.nio.charset.Charset;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-public class ConnexionActivity extends AppCompatActivity {
+public class InscriptionActivity extends AppCompatActivity {
 
-    private TextView login;
-    private TextView password;
-    private Button connexion;
-    private Button inscription;
+    private TextView newLogin;
+    private TextView newPassword;
+    private TextView nom;
+    private TextView prenom;
+    private Button creer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_connexion);
+        setContentView(R.layout.activity_inscription);
 
-        login = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        connexion = findViewById(R.id.connexion);
-        inscription = findViewById(R.id.inscription);
+        newLogin = findViewById(R.id.new_login);
+        newPassword = findViewById(R.id.new_password);
+        nom = findViewById(R.id.nom);
+        prenom = findViewById(R.id.prenom);
+        creer = findViewById(R.id.creer);
 
-        connexion.setOnClickListener(new View.OnClickListener() {
+        creer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Map<String, String> params = new HashMap<>();
-                params.put("login", login.getText().toString());
-                params.put("pass", password.getText().toString());
+                params.put("login", newLogin.getText().toString());
+                params.put("pass", newPassword.getText().toString());
+                params.put("nom", nom.getText().toString());
+                params.put("prenom", prenom.getText().toString());
 
-                sendRequest(1, "ws/resto/connexion", params);
+                sendRequest(1, "ws/resto/addCompte", params);
             }
         });
-
-        inscription.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mIntent = new Intent(ConnexionActivity.this, InscriptionActivity.class);
-                startActivity(mIntent);
-            }
-        });
-
 
     }
 
@@ -66,7 +58,7 @@ public class ConnexionActivity extends AppCompatActivity {
             params = new HashMap<>();
         }
 
-        final String jsonString = new Gson().toJson(params);
+        String jsonString = new Gson().toJson(params);
 
 
         Map<String, String> header = new HashMap<>();
@@ -94,8 +86,13 @@ public class ConnexionActivity extends AppCompatActivity {
             public void success(Request request, Response response, String data) {
                 Log.i("Succes : ", data);
 
-                Intent mIntent = new Intent(ConnexionActivity.this, ListeRecettesActivity.class);
-                startActivity(mIntent);
+                //do something when it is successful
+
+                /*if(wsListener == null){
+                    return;
+                }
+
+                wsListener.successRequest(idRequest, data);*/
 
             }
 
