@@ -95,7 +95,7 @@
                 android:layout_height="30dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/chop"
-                android:tint="#c9490e"
+                android:tint="@color/colorIcon"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -139,7 +139,7 @@
                 android:layout_height="30dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/stove"
-                android:tint="#c9490e"
+                android:tint="@color/colorIcon"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -183,7 +183,7 @@
                 android:layout_height="30dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/pot"
-                android:tint="#c9490e"
+                android:tint="@color/colorIcon"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

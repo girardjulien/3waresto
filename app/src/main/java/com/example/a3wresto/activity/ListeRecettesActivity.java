@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.a3wresto.R;
 import com.example.a3wresto.adapter.RecipeAdapter;
@@ -26,6 +28,7 @@ public class ListeRecettesActivity extends AppCompatActivity implements WsManage
     private RecyclerView recyclerView;
     private Gson gson = new Gson();
     private List<Recipe> recipeList;
+    private ProgressBar progressbar;
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -59,6 +62,7 @@ public class ListeRecettesActivity extends AppCompatActivity implements WsManage
         setContentView(R.layout.activity_liste_recettes);
 
         recyclerView = findViewById(R.id.recipe_list);
+        progressbar = findViewById(R.id.progressbar);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -83,7 +87,7 @@ public class ListeRecettesActivity extends AppCompatActivity implements WsManage
 
         RecipeAdapter adapter = new RecipeAdapter(recipeList, this);
         recyclerView.setAdapter(adapter);
-
+        progressbar.setVisibility(View.GONE);
     }
 
     @Override
