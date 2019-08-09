@@ -12,10 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ListeRecettesActivity"></activity>
-        <activity android:name=".InscriptionActivity" />
-        <activity android:name=".ConnexionActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.ProfilActivity"></activity>
+        <activity android:name=".activity.RecetteActivity" />
+        <activity android:name=".activity.ListeRecettesActivity" />
+        <activity android:name=".activity.InscriptionActivity" />
+        <activity android:name=".activity.ConnexionActivity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

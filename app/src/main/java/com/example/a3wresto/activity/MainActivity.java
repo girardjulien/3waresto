@@ -1,9 +1,13 @@
-package com.example.a3wresto;
+package com.example.a3wresto.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.a3wresto.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                /*if (connexion) {
+                SharedPreferences sharedPref = getSharedPreferences("Profil", Context.MODE_PRIVATE);
+                if (sharedPref.getString("email", "") != "") {
                     Intent mIntent = new Intent(MainActivity.this, ListeRecettesActivity.class);
                     startActivity(mIntent);
-                } else {*/
+                } else {
                     Intent mIntent = new Intent(MainActivity.this, ConnexionActivity.class);
                     startActivity(mIntent);
-                //}
+                }
             }
         }, 3000);
     }
